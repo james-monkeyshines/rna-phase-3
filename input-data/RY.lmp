@@ -1,0 +1,23 @@
+A = R
+C = Y
+G = R
+T = Y
+U = Y
+R = R
+Y = Y
+- = X
+N = X
+? = X
+
+a = R
+c = Y
+g = R
+t = Y
+u = Y
+r = X
+y = X
+n = X
+
+{MISMATCH}
+    X = .
+{\MISMATCH}

@@ -1,0 +1,38 @@
+A
+R  122
+N  142    70
+D   93    10  4181
+C  315   544   310    10
+Q   10  1163   913   291   396
+E   51    10   332  3071    10  1650
+G  635   121   281   299   162    36   149
+H   73   870  2611   600   745  3065   259    10
+I  508    10   143    23   330    44    17    31    65
+L  134    82    80    10   135   209    10    13    60  1732
+K   44   744  3204    12    10  2450  1652   120   672   103    78
+M  747    10   344    10    33   249    10    10    63  2726  2829   481
+F   34    25    80    26   373   101    14    10   253   446  1137    34   478
+P  286   124   386    71   165   723    68    10   321   109   211   264    99    91
+S 2041    32  2602   363  1458   285   288   663   408   251   387   557   585   338   894
+T 2530    11  1255   147   947   500    78    59   236  1939   665   718  2780   178   675  3143
+W   10   116    56   105   177    10    10    57    37    10   171   126   114    41    22   203    53
+Y   34    10  1007   112  1341   204    69    17  3527   132   232   269   210  2450    85   342   204   138 
+V 1027    40    10    10    10   100   111    13    10  6437   482    10  2040    33    43    10  1077    28    10
+
+
+0.072  0.019  0.039  0.019  0.006  0.025  0.024  0.056  0.028  0.088  0.167  0.023  0.054  0.061  0.054  0.072  0.086  0.029  0.033  0.043
+
+# A   R   N   D   C   Q   E   G   H   I   L   K   M   F   P   S   T   W   Y   V
+#Ala Arg Asn Asp Cys Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr Val
+
+#mtREV24 rate matrix
+#from MOLPHY 2.3 manual: Adachi, J. and Hasegawa, M.
+#matrix estimated by ML with 12 protein-coding genes on the same
+#strand of 24 mtDNA sequences of vertebrates (NADH6 excluded)
+#The first part above indicates the symmetric 'exchangeability' parameters s_ij, 
+#where s_ij = s_ji.
+#The second part gives the amino acid equilibrium frequencies pi_i. 
+#The net replacement rate from i to j is q_ij = pi_j*s_ij.
+
+#PHASE performs a scaling to have the desired average substitution rate
+#per unit of branch length

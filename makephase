@@ -1,0 +1,15 @@
+########################################################################
+#  PHASE (Phylogenies and Sequence Evolution) makefile	         ######
+#  PHASE version 3.0                                            ######
+#                                                              ######
+####################################################################
+
+
+# Machine definition for the gcc compiler
+MACHINE =
+
+# Machine dependent optimizations
+MACHINEOPT = -ffast-math -fstrength-reduce
+
+# Generic optimizations
+OPT = -funroll-loops -O4

@@ -1,0 +1,49 @@
+A = A
+R = R
+N = N
+D = D
+C = C
+Q = Q
+E = E
+G = G
+H = H
+I = I
+L = L
+K = K
+M = M
+F = F
+P = P
+S = S
+T = T
+W = W
+Y = Y
+V = V
+- = ?
+? = ?
+X = ?
+
+a = A
+r = R
+n = N
+d = D
+c = C
+q = Q
+e = E
+g = G
+h = H
+i = I
+l = L
+k = K
+m = M
+f = F
+p = P
+s = S
+t = T
+w = W
+y = Y
+v = V
+x = ?
+
+{MISMATCH}
+  ? = .
+{\MISMATCH}

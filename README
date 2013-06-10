@@ -1,0 +1,129 @@
+    PHASE is a phylogenetic inference program
+    copyright (C) 2002-2013 University of Manchester
+    The windows version of this software uses the cygwin DLL
+    Copyright (C) 2000-2003 Red Hat, Inc.
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details (in the COPYING file).
+
+------
+The PHASE package contains seven programs:
+
+i)     mcmcphase
+ii)    mcmcsummarize
+iii)   mlphase
+iv)    optimizer
+v)     likelihood
+vi)    analyzer
+vii)   simulate
+viii)  distphase
+
+and a small utility:
+i)     splitdataset
+
+
+------
+Before compilation:
+
+PHASE 2.0 would always require confirmation before overwriting output files,
+which is useful, but can complicate matters when scripting execution. So,
+in PHASE 3.0 you can turn on automatic overwriting of output files, by setting
+the 'cautious' constant in include/Util/FileParser.h to 0. By default, the
+value is 1, ie the behaviour is the same as in version 2.0 of PHASE.
+
+
+------
+Compile the programs:
+
+# All platforms (see below for more specifics on non-linux systems)
+i) To compile type "make" on the command line. With a recent g++ version
+   it should work (gcc 3.x required, with g77 and libg2c). Check your version with
+   "gcc -v". The latest gcc version that has been successfully tested is 4.5.3.
+ii) g77 and libg2c are not required if BLAS and LAPACK are already in your system.
+    This is probably the case with Mac OSX and recent linux OS.
+    You need to change the OPTLIBS/LIBS option in the file "makefile" to reflect this:
+    Linux:
+        OPTLIBS = true
+        LIBS = -llapack -lblas -lm   #-lg2c was removed
+    Mac (see also additional points below):
+        OPTLIBS = true
+        LIBS = -framework vecLib
+iii)  Depending on your system you might have to alter slightly the file used
+     to build the software :
+     - makephase
+         used to specify some machine dependant optimisations
+     - make.libs, lapack/makefile and blas/makefile
+         files used to build cut-down version of the blas and lapack libraries
+         used in this package
+     - makefile
+         the main make file
+
+# MacOSX users (thanks to Ben Hines and Dave Ardell)
+i) You should already have your own versions of BLAS/LAPACK. In the makefile
+   you have to change the OPTLIBS and LIBS values:
+        OPTLIBS = true
+        LIBS = -framework vecLib
+ii) If the compilation fails during the linking stage, Then you might have to use:    
+        LIBS = -framework vecLib -bind_at_load
+    instead of:
+        LIBS = -framework vecLib
+iii) PHASE might not compile on newer system because of a previous patch
+    that was added for older MacOSX. If the compilation fails with the error:
+         "error: parse error before `sizeof'"
+    in the file include/configfix.h,
+    then you have to edit this files and remove the 2 lines:
+        extern "C" int isnan (double);
+        extern "C" int isinf (double);
+    They are at the beginning, just after:
+    #if defined(__APPLE__)
+
+# Solaris (thanks to Emil Lundberg and Dave Ardell)
+i)   On Solaris, you need to use the GNU make instead of the default make, type
+     "gmake" instead of "make" to compile.
+
+# Other Unix-flavour platforms
+We tried to write PHASE in standard C++ and tried to avoid any system
+dependant functionality. With up-to-date GNU tools it should be possible to
+compile the code properly. Please contact us in case of trouble.
+
+
+------
+Install the package :
+
+There is no installation procedure (i.e., no "make install").
+
+The programs of the package:
+mcmcphase
+mcmcsummarize
+mlphase
+optimizer
+distphase
+likelihood
+analyzer
+simulate
+
+splitdataset
+
+are created in the 'bin' directory, so you might want to add that to your
+path, or create a link to there from somewhere that is in your path.
+
+There are examples of data and control files in the 'example' directory;
+results will be saved in the 'results' directory if you run the examples
+yourself. Note that directory locations that are used in the control files
+will only work if executed from the 'example' directory, eg:
+cd phase-3.0/example
+../bin/mlphase control/mlphase/hiv6-HKY85I.ctl
+
+or, if mlphase is in your path
+mlphase control/mlphase/hiv6-HKY85I.ctl
+
+The 'input-data' directory contains data files that are used by some programs,
+such as nucleotide equivalencies under various models (e.g. DNA <-> RY).
+

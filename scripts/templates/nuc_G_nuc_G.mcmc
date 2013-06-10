@@ -1,0 +1,73 @@
+# Template of a control file for use with mcmcphase.
+
+{DATAFILE}
+Data file = 
+Interleaved data file = no
+Heterogeneous data models = yes
+{\DATAFILE}
+
+{MODEL}
+Model = MIXED
+Number of models = 2
+Starting model parameters file = 
+
+{MODEL1}
+Model = REV
+Discrete gamma distribution of rates = yes
+Number of gamma categories = 4
+Invariant sites = no
+{\MODEL1}
+
+{MODEL2}
+Model = REV
+Discrete gamma distribution of rates = yes
+Number of gamma categories = 4
+Invariant sites = no
+{\MODEL2}
+
+{\MODEL}
+
+{TREE}
+Tree = Unrooted MCMC tree
+Outgroup = 
+{\TREE}
+
+{PERTURBATION}
+Tree, proposal priority = 10
+Model, proposal priority = 1
+
+{PERTURBATION_TREE}
+Topology changes, proposal priority = 1
+Branch lengths, proposal priority = 5
+Branch lengths, prior = exponential(10)
+{\PERTURBATION_TREE}
+
+{PERTURBATION_MODEL}
+Model 1, proposal priority = 10
+Model 2, proposal priority = 10
+Average rates, proposal priority = 1
+
+{PERTURBATION_MODEL1}
+Frequencies, proposal priority = 0
+Rate ratios, proposal priority = 1
+Gamma parameter, proposal priority = 1
+{\PERTURBATION_MODEL1}
+
+{PERTURBATION_MODEL2}
+Frequencies, proposal priority = 0
+Rate ratios, proposal priority = 1
+Gamma parameter, proposal priority = 1
+{\PERTURBATION_MODEL2}
+
+{\PERTURBATION_MODEL}
+
+{\PERTURBATION}
+
+Random seed = 
+Burnin iterations = 150000
+Sampling iterations = 300000
+Sampling period = 100
+
+Output file = 
+Output format = phylip
+

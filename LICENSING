@@ -1,0 +1,15 @@
+    PHASE is a phylogenetic inference program
+    copyright (C) 2002-2013  University of Manchester
+    
+    The windows version of this software is linked against the cygwin DLL
+    Copyright (C) 2000-2003  Red Hat, Inc.
+    
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details (licence.txt).

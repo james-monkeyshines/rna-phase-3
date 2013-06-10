@@ -1,0 +1,227 @@
+AA = MM
+AC = MM
+AG = MM
+AT = AU
+AU = AU
+AR = MM
+AY = XX
+A- = XX
+AN = XX
+A? = XX
+
+CA = MM
+CC = MM
+CG = CG
+CT = MM
+CU = MM
+CR = XX
+CY = MM
+C- = XX
+CN = XX
+C? = XX
+
+GA = MM
+GC = GC
+GG = MM
+GT = GU
+GU = GU
+GR = MM
+GY = XX
+G- = XX
+GN = XX
+G? = XX
+
+TA = UA
+TC = MM
+TG = UG
+TT = MM
+TU = MM
+TR = XX
+TY = MM
+T- = XX
+TN = XX
+T? = XX
+
+UA = UA
+UC = MM
+UG = UG
+UT = MM
+UU = MM
+UR = XX
+UY = MM
+U- = XX
+UN = XX
+U? = XX
+
+RA = MM
+RC = XX
+RG = MM
+RT = XX
+RU = XX
+RR = MM
+RY = XX
+R- = XX
+RN = XX
+R? = XX
+
+YA = XX
+YC = MM
+YG = XX
+YT = MM
+YU = MM
+YR = XX
+YY = MM
+Y- = XX
+YN = XX
+Y? = XX
+
+
+-A = XX
+-C = XX
+-G = XX
+-T = XX
+-U = XX
+-R = XX
+-Y = XX
+-- = XX
+-N = XX
+-? = XX
+
+NA = XX
+NC = XX
+NG = XX
+NT = XX
+NU = XX
+NR = XX
+NY = XX
+NN = XX
+NN = XX
+N? = XX
+
+?A = XX
+?C = XX
+?G = XX
+?T = XX
+?U = XX
+?R = XX
+?Y = XX
+?? = XX
+?N = XX
+?? = XX
+
+
+aa = MM
+ac = MM
+ag = MM
+at = AU
+au = AU
+ar = MM
+ay = XX
+a- = XX
+an = XX
+a? = XX
+
+ca = MM
+cc = MM
+cg = CG
+ct = MM
+cu = MM
+cr = XX
+cy = MM
+c- = XX
+cn = XX
+c? = XX
+
+ga = MM
+gc = GC
+gg = MM
+gt = GU
+gu = GU
+gr = MM
+gy = XX
+g- = XX
+gn = XX
+g? = XX
+
+ta = UA
+tc = MM
+tg = UG
+tt = MM
+tu = MM
+tr = XX
+ty = MM
+t- = XX
+tn = XX
+t? = XX
+
+ua = UA
+uc = MM
+ug = UG
+ut = MM
+uu = MM
+ur = XX
+uy = MM
+u- = XX
+un = XX
+u? = XX
+
+ra = MM
+rc = XX
+rg = MM
+rt = XX
+ru = XX
+rr = MM
+ry = XX
+r- = XX
+rn = XX
+r? = XX
+
+ya = XX
+yc = MM
+yg = XX
+yt = MM
+yu = MM
+yr = XX
+yy = MM
+y- = XX
+yn = XX
+y? = XX
+
+
+-a = XX
+-c = XX
+-g = XX
+-t = XX
+-u = XX
+-r = XX
+-y = XX
+-- = XX
+-n = XX
+-? = XX
+
+na = XX
+nc = XX
+ng = XX
+nt = XX
+nu = XX
+nr = XX
+ny = XX
+nn = XX
+nn = XX
+n? = XX
+
+?a = XX
+?c = XX
+?g = XX
+?t = XX
+?u = XX
+?r = XX
+?y = XX
+?? = XX
+?n = XX
+?? = XX
+
+{MISMATCH}
+  MM = .
+  XX = .
+{\MISMATCH}
