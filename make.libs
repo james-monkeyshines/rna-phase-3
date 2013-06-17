@@ -17,7 +17,7 @@ PLAT =
 #  desired load options for your machine.
 #
 FORTRAN  = gfortran
-OPTS     = -funroll-loops -fno-f2c -O4
+OPTS     = -funroll-loops -O4
 DRVOPTS  = $(OPTS)
 NOOPT    =
 LOADER   = gfortran
