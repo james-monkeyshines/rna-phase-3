@@ -45,7 +45,8 @@ environment, assuming that you've placed PHASE in your home directory:
   export PATH=$PATH:$HOME/rna-phase-3/bin_x86_32
 Add this to $HOME/.bashrc to execute every time that you log in.
 
-Skip down to the end of this README for brief instructions for running the examples included with the package, and refer to the manual for further details.
+Skip down to the end of this README for brief instructions for running the
+examples included with the package, and refer to the manual for further details.
 
 
 ------
