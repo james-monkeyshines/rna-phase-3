@@ -33,10 +33,10 @@ i)     splitdataset
 Pre-compiled executables:
 The quickest and easiest way to get started with PHASE is to use the
 pre-compiled executables in the bin_* directories:
-	bin_windows: Windows (cygwin)
+  bin_windows: Windows (cygwin)
   bin_x86_32: 32-bit Linux
   bin_x86_64: 64-bit Linux
-	(coming soon): Mac OS X
+  (coming soon): Mac OS X
 
 We recommend that you add the executables to your path, for ease of use. You can
 either copy them to somewhere that's already in your path, or (probably easier)
@@ -74,8 +74,8 @@ to edit the make files.
 the versions that are included with PHASE; this requires gfortran to be
 installed. You need to change the OPTLIBS/LIBS options in the file "makefile" to
 compile BLAS and LAPACK libraries:
-	OPTLIBS = false
-	LIBS = -llapack -lblas -lgfortran -lm
+  OPTLIBS = false
+  LIBS = -llapack -lblas -lgfortran -lm
 
 # Mac OS X (thanks to Ben Hines and Dave Ardell)
 1) To compile, type "make" on the command line. A recent-ish g++ version (at
@@ -85,22 +85,22 @@ tested is 4.5.3.
 2) PHASE uses BLAS and LAPACK libraries, which are probably already installed
 on your system. By default, the compilation will use Linux settings, so you need
 to change the OPTLIBS/LIBS options in the file "makefile":
-	OPTLIBS = true
-	LIBS = -framework vecLib
+  OPTLIBS = true
+  LIBS = -framework vecLib
 
 3) If the compilation fails during the linking stage, you might have to use:
-	LIBS = -framework vecLib -bind_at_load
+  LIBS = -framework vecLib -bind_at_load
 instead of:
-	LIBS = -framework vecLib
+  LIBS = -framework vecLib
 
 4) PHASE might not compile on newer systems because of a previous patch that was
 added for older MacOSX. If the compilation fails with the error:
-	"error: parse error before `sizeof'" in "include/configfix.h",
+  "error: parse error before `sizeof'" in "include/configfix.h",
 then you have to edit this file and remove the 2 lines:
-	extern "C" int isnan (double);
-	extern "C" int isinf (double);
+  extern "C" int isnan (double);
+  extern "C" int isinf (double);
 They are at the beginning, just after:
-	#if defined(__APPLE__)
+  #if defined(__APPLE__)
 
 # Solaris (thanks to Emil Lundberg and Dave Ardell)
 1) On Solaris, you need to use the GNU make instead of the default make; type
