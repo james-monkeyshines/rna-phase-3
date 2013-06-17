@@ -12,7 +12,7 @@ LD = g++
 # Change these two settings if you already have optimized versions of blas and
 # lapack in your system (probably the case for Mac/Linux - see README).
 #OPTLIBS = false
-#LIBS = -llapack -lblas -lg2c -lm
+#LIBS = -llapack -lblas -lgfortran -lm
 
 # Probable best Linux settings
 OPTLIBS = true
