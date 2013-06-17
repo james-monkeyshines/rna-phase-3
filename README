@@ -30,6 +30,25 @@ i)     splitdataset
 
 
 ------
+Pre-compiled executables:
+The quickest and easiest way to get started with PHASE is to use the
+pre-compiled executables in the bin_* directories:
+	bin_windows: Windows (cygwin)
+  bin_x86_32: 32-bit Linux
+  bin_x86_64: 64-bit Linux
+	(coming soon): Mac OS X
+
+We recommend that you add the executables to your path, for ease of use. You can
+either copy them to somewhere that's already in your path, or (probably easier)
+add the relevant bin_* directory to your path. For example, in a bash
+environment, assuming that you've placed PHASE in your home directory:
+  export PATH=$PATH:$HOME/rna-phase-3/bin_x86_32
+Add this to $HOME/.bashrc to execute every time that you log in.
+
+Skip down to the end of this README for brief instructions for running the examples included with the package, and refer to the manual for further details.
+
+
+------
 Before compilation:
 
 PHASE 2.0 would always require confirmation before overwriting output files,
@@ -42,77 +61,68 @@ value is 1, ie the behaviour is the same as in version 2.0 of PHASE.
 ------
 Compile the programs:
 
-# All platforms (see below for more specifics on non-linux systems)
-i) To compile type "make" on the command line. With a recent g++ version
-   it should work (gcc 3.x required, with g77 and libg2c). Check your version with
-   "gcc -v". The latest gcc version that has been successfully tested is 4.5.3.
-ii) g77 and libg2c are not required if BLAS and LAPACK are already in your system.
-    This is probably the case with Mac OSX and recent linux OS.
-    You need to change the OPTLIBS/LIBS option in the file "makefile" to reflect this:
-    Linux:
-        OPTLIBS = true
-        LIBS = -llapack -lblas -lm   #-lg2c was removed
-    Mac (see also additional points below):
-        OPTLIBS = true
-        LIBS = -framework vecLib
-iii)  Depending on your system you might have to alter slightly the file used
-     to build the software :
-     - makephase
-         used to specify some machine dependant optimisations
-     - make.libs, lapack/makefile and blas/makefile
-         files used to build cut-down version of the blas and lapack libraries
-         used in this package
-     - makefile
-         the main make file
+# Linux (including cygwin on Windows)
+1) To compile, type "make" on the command line. A recent-ish g++ version (at
+least gcc 3.x) is required. The latest gcc version that has been successfully
+tested is 4.5.3.
 
-# MacOSX users (thanks to Ben Hines and Dave Ardell)
-i) You should already have your own versions of BLAS/LAPACK. In the makefile
-   you have to change the OPTLIBS and LIBS values:
-        OPTLIBS = true
-        LIBS = -framework vecLib
-ii) If the compilation fails during the linking stage, Then you might have to use:    
-        LIBS = -framework vecLib -bind_at_load
-    instead of:
-        LIBS = -framework vecLib
-iii) PHASE might not compile on newer system because of a previous patch
-    that was added for older MacOSX. If the compilation fails with the error:
-         "error: parse error before `sizeof'"
-    in the file include/configfix.h,
-    then you have to edit this files and remove the 2 lines:
-        extern "C" int isnan (double);
-        extern "C" int isinf (double);
-    They are at the beginning, just after:
-    #if defined(__APPLE__)
+2) PHASE uses BLAS and LAPACK libraries, which are probably already installed
+on your system. By default, the compilation will use those, and you do not need
+to edit the make files.
+
+3) If you get a message about missing BLAS and LAPACK libraries, you can use
+the versions that are included with PHASE; this requires gfortran to be
+installed. You need to change the OPTLIBS/LIBS options in the file "makefile" to
+compile BLAS and LAPACK libraries:
+	OPTLIBS = false
+	LIBS = -llapack -lblas -lgfortran -lm
+
+# Mac OS X (thanks to Ben Hines and Dave Ardell)
+1) To compile, type "make" on the command line. A recent-ish g++ version (at
+least gcc 3.x) is required. The latest gcc version that has been successfully
+tested is 4.5.3.
+
+2) PHASE uses BLAS and LAPACK libraries, which are probably already installed
+on your system. By default, the compilation will use Linux settings, so you need
+to change the OPTLIBS/LIBS options in the file "makefile":
+	OPTLIBS = true
+	LIBS = -framework vecLib
+
+3) If the compilation fails during the linking stage, you might have to use:
+	LIBS = -framework vecLib -bind_at_load
+instead of:
+	LIBS = -framework vecLib
+
+4) PHASE might not compile on newer systems because of a previous patch that was
+added for older MacOSX. If the compilation fails with the error:
+	"error: parse error before `sizeof'" in "include/configfix.h",
+then you have to edit this file and remove the 2 lines:
+	extern "C" int isnan (double);
+	extern "C" int isinf (double);
+They are at the beginning, just after:
+	#if defined(__APPLE__)
 
 # Solaris (thanks to Emil Lundberg and Dave Ardell)
-i)   On Solaris, you need to use the GNU make instead of the default make, type
-     "gmake" instead of "make" to compile.
-
-# Other Unix-flavour platforms
-We tried to write PHASE in standard C++ and tried to avoid any system
-dependant functionality. With up-to-date GNU tools it should be possible to
-compile the code properly. Please contact us in case of trouble.
+1) On Solaris, you need to use the GNU make instead of the default make; type
+"gmake" instead of "make" to compile.
 
 
 ------
-Install the package :
+Install the package:
 
 There is no installation procedure (i.e., no "make install").
 
-The programs of the package:
-mcmcphase
-mcmcsummarize
-mlphase
-optimizer
-distphase
-likelihood
-analyzer
-simulate
+The programs of the package are created in the 'bin' directory. We recommend
+that you add the executables to your path, for ease of use. You can either copy
+them to somewhere that's already in your path, or (probably easier)
+add the relevant bin_* directory to your path. For example, in a bash
+environment, assuming that you've placed PHASE in your home directory:
+  export PATH=$PATH:$HOME/rna-phase-3/bin_x86_32
+Add this to $HOME/.bashrc to execute every time that you log in.
 
-splitdataset
 
-are created in the 'bin' directory, so you might want to add that to your
-path, or create a link to there from somewhere that is in your path.
+------
+Running examples for the PHASE executables:
 
 There are examples of data and control files in the 'example' directory;
 results will be saved in the 'results' directory if you run the examples
@@ -126,4 +136,33 @@ mlphase control/mlphase/hiv6-HKY85I.ctl
 
 The 'input-data' directory contains data files that are used by some programs,
 such as nucleotide equivalencies under various models (e.g. DNA <-> RY).
+
+
+------
+Running examples with the PHASE RNA model selection Perl script:
+
+New in version 3.0 of PHASE is the ability to perform model selection for a
+range of DNA and RNA models. More details on this functionality are in the
+PHASE manual, or you can execute the script without any parameters to see
+instructions for using the script:
+  cd $HOME/rna-phase-3/scripts
+  perl model_selection.pl
+
+An example set of data is included; execute it with:
+  cd $HOME/rna-phase-3/scripts
+  perl model_selection.pl \
+    --alignment example/RF00403.fa \
+    --structure example/RF00403.structure.txt \
+    --tree_file example/RF00403.bionj.nh \
+    --out_dir example 
+
+This example will create subdirectories called 'control' and 'results' in the
+'example' directory, to store intermediate files and the output files from
+PHASE. The model selection results will be saved in the file
+'example/RF00403_results.txt'.
+
+Note that the script assumes that the necessary PHASE executables are in the
+user's path; if not, their location can be specified with a parameter to the
+script, e.g. --phase_optimizer $HOME/rna-phase-3/bin/optimizer
+
 
