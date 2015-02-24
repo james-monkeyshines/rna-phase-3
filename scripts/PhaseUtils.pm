@@ -632,7 +632,7 @@ sub phase_ml {
 	}
 	save_to_file($ctl, $ctl_file);
 	
-	execute_check("$program '$ctl_file'", 'maxLikelihood', 1, "PHASE", $fatal);
+	execute_check("$program \"$ctl_file\"", 'maxLikelihood', 1, "PHASE", $fatal);
 	
 	return $out_file;
 }
@@ -681,7 +681,7 @@ sub phase_mcmc {
 	unlink($out_file, "$out_file.out", "$out_file.mod", "$out_file.tre");
 	
 	$program = "mcmcphase" unless $program;
-	execute_check("$program '$ctl_file'", 'Best Tree', 1, "PHASE", $fatal);
+	execute_check("$program \"$ctl_file\"", 'Best Tree', 1, "PHASE", $fatal);
 	
 	return $out_file;
 }
@@ -692,7 +692,7 @@ sub phase_mcmc_tree {
 	$fatal = "fatal" unless defined $fatal;
 	
 	$program = "mcmcsummarize" unless $program;
-	execute_check("$program '$ctl_file'", 'Consensus', 1, "PHASE (mcmcsummarize)", $fatal);
+	execute_check("$program \"$ctl_file\"", 'Consensus', 1, "PHASE (mcmcsummarize)", $fatal);
 	
 	my $ctl = read_from_file($ctl_file);
 	my ($out_file) = $ctl =~ /Output file\s*=\s*(\S+)\n/ms;
