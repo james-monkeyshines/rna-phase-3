@@ -33,10 +33,11 @@ i)     splitdataset
 Pre-compiled executables:
 The quickest and easiest way to get started with PHASE is to use the
 pre-compiled executables in the bin_* directories:
-  bin_windows: Windows (cygwin)
+  bin_windows_32: 32-bit Windows
+  bin_windows_64: 64-bit Windows
+  bin_windows_cygwin: Windows (cygwin)
   bin_x86_32: 32-bit Linux
   bin_x86_64: 64-bit Linux
-  (coming soon): Mac OS X
 
 We recommend that you add the executables to your path, for ease of use. You can
 either copy them to somewhere that's already in your path, or (probably easier)
